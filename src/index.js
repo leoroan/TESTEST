@@ -26,5 +26,5 @@ app.use("/api/docs", documentsRouter);
 
 
 app.listen(8080, () => {
-  console.log(`Server listen on http://localhost:${8080}`);
+  console.log(`Server listening...`);
 });
