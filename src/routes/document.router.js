@@ -37,7 +37,7 @@ router.get('/file/:folder', (req, res) => {
       return;
     }
     res.setHeader('Content-Type', 'application/json');
-    res.json({ archivos });
+    res.json(archivos);
   });
 });
 
