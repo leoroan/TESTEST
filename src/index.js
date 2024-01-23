@@ -25,6 +25,6 @@ app.use(express.static(__dirname + "/public"));
 app.use("/api/docs", documentsRouter);
 
 
-app.listen(8080, () => {
+app.listen(8000, () => {
   console.log(`Server listening...`);
 });
