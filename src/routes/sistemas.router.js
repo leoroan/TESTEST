@@ -47,4 +47,15 @@ router.post('/', async (req, res) => {
   }
 })
 
+router.delete('/:sid', async (req, res) => {
+  try {
+    let sistemaId = req.params.sid;
+    let sistema = await ss.delete(sistemaId);
+    res.send(sistema);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: "No se pudo eliminar el sistema." + error });
+  }
+});
+
 export default router;

@@ -79,4 +79,19 @@ export default class SistemasService {
       throw Error(`Error actualizando el sistema, detalle del error: ${error}`);
     }
   }
+
+  // borrar un sistema por id
+  async delete(id) {
+    try {
+      this._sistemas = await this.getAll();
+      let sistemaIndex = this._sistemas.findIndex(s => s.id == id);
+      if (sistemaIndex == -1) {
+        throw Error(`No se encontró el sistema con id: ${id}`);
+      }
+      this._sistemas.splice(sistemaIndex, 1);
+      await this._fs.promises.writeFile(this._filePath, JSON.stringify(this._sistemas));
+    } catch (error) {
+      throw Error(`Error eliminando el sistema, detalle del error: ${error}`);
+    }
+  }
 };

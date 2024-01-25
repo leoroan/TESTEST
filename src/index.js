@@ -3,6 +3,7 @@ import express from "express";
 import { __dirname } from "./utils.js";
 import documentsRouter from "./routes/document.router.js";
 import sistemaRouter from "./routes/sistemas.router.js";
+import agendaRouter from "./routes/agenda.router.js";
 
 // genéricos
 const app = express();
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
 // app.use("/api/entity", Entidad);
 app.use("/api/docs", documentsRouter);
 app.use("/api/sistemas", sistemaRouter);
+app.use("/api/agenda", agendaRouter);
 
 // sequelize
 //   .authenticate()
