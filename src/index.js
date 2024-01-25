@@ -1,9 +1,8 @@
+// import { sequelize } from "./connection.js";
 import express from "express";
-import cors from "cors";
 import { __dirname } from "./utils.js";
-// import Entidad from "./routes/Entidad.router.js";
 import documentsRouter from "./routes/document.router.js";
-// import '../models/associate.js';
+import sistemaRouter from "./routes/sistemas.router.js";
 
 // genéricos
 const app = express();
@@ -15,21 +14,28 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
-// app.use(express.json());
-
-// const corsOptions = {
-//   origin: 'http://localhost:5173', // Specify the origin of your frontend
-//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-//   credentials: true, // Enable CORS credentials
-// };
-// app.use(cors(corsOptions));
-// app.options('*', cors());
 
 //Routes
 // app.use("/api/entity", Entidad);
 app.use("/api/docs", documentsRouter);
+app.use("/api/sistemas", sistemaRouter);
 
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connection success');
+//     return sequelize.sync();
+//   })
+//   .then(() => {
+//     console.log('Sync models');
+//     app.listen(8080, () => {
+//       console.log(`Server listen on http://localhost:${8080}`);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error('Connection fail', error);
+//   });
 
 app.listen(8000, () => {
-  console.log(`Server listening...`);
+  console.log(`Server listen on KOYEB at 8000`);
 });
